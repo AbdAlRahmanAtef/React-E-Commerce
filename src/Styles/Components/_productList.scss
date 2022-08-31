@@ -1,0 +1,46 @@
+.products {
+  background-color: $mainColor;
+  padding-top: $padding;
+  padding-bottom: $padding;
+  h2 {
+    display: block;
+    width: fit-content;
+    margin: auto;
+    color: $light;
+    font-size: 30px;
+    font-weight: 900;
+  }
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    .filter {
+      min-width: 80px;
+      height: 40px;
+      font-size: 18px;
+      color: $mainColor;
+      background-color: $light;
+      border: 2px solid transparent;
+      border-radius: 20px;
+      padding: 0 15px;
+      transition: $transition;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: capitalize;
+      &:hover {
+        background-color: $mainColor;
+        color: $light;
+        border-color: $light;
+      }
+    }
+  }
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+}

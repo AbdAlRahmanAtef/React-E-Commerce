@@ -1,0 +1,21 @@
+.btn {
+  color: $light;
+  border-radius: $borderRadius;
+  text-decoration: none;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  height: 45px;
+  padding: 0 20px;
+  transition: $transition;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  &:hover {
+    background-color: $mainColor;
+    color: $light;
+  }
+}

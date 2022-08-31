@@ -1,0 +1,48 @@
+.slider {
+  width: 100%;
+  max-height: 640px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: $mainColor;
+  .slide {
+    min-width: 100%;
+    transition: $transition;
+    background-color: transparent;
+    overflow: hidden;
+    img {
+      max-width: 100%;
+    }
+  }
+  .go-left, .go-right {
+    opacity: 0;
+    width: 100px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    height: 80%;
+    border-radius: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    &:focus {
+      background-color: rgba(0, 0, 0, 0.34);
+    }
+    .icon {
+      color: $mainColor;
+      font-size: 30px;
+    }
+  }
+  .go-left {
+    left: 0;
+  }
+  .go-right {
+    right: 0;
+  }
+  &:hover .go-left,  
+  &:hover .go-right {
+    opacity: 1;
+  } 
+}

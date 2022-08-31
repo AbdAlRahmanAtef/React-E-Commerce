@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap');
+
+// Font
+$family: 'Cairo', sans-serif;
+
+// Colors
+$dark: #222;
+$black: #000;
+$light: #fff;
+$mainColor: #1C1C59;
+
+// Spacing
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+// Padding 
+$padding : 50px;
+// Border Radius
+$borderRadius: 12px;
+
+// Transition
+$transition: .3s;
+
+@mixin breakpoint($point) {
+  @if $point == md {
+    @media (min-width: 48em) {
+      @content;
+    }
+  }
+}

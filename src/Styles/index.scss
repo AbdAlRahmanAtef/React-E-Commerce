@@ -1,0 +1,21 @@
+@import "./Helpers/variales";
+@import "./Layout/grid";
+@import "./Layout/btn";
+@import "./Components/nabar";
+@import "./Components/slider";
+@import "./Components/product";
+@import "./Components/productList";
+@import "./Components/proDetails";
+@import "./Components/slider";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  font-family: $family;
+  color: $dark;
+}
+
+
