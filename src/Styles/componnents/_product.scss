@@ -1,0 +1,83 @@
+
+.card {
+  background-color: $light;
+  padding: 10px 15px;
+  border-radius: $borderRadius;
+  height: fit-content;
+  box-shadow: 0 0 10px $dark;
+  .image {
+    width: 100%;
+    text-align: center;
+    height: 200px;
+    img {
+      max-width: 100%;
+      height: 200px;
+    }
+  }
+  h3 {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1;
+    color: $mainColor;
+  }
+  .price {
+    color: $mainColor;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    .info-btn {
+      width: 120px;
+      height: 45px;
+      border-radius: 22px;
+      background-color: $mainColor;
+      color: $light;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: $transition;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      color: $dark;
+      font-weight: bold;
+      &:hover svg {
+        animation: arrow .6s infinite;
+      }
+    }
+    // svg {
+      //   transition: $transition;
+    //   color: $dark;
+    //   cursor: pointer;
+    // }
+    // a,
+    // svg {
+      //   &:hover {
+        //     color: $mainColor;
+        //   }
+        // }
+  }
+}
+// }
+@keyframes arrow {
+  0% {
+    transform: translateX(0);
+
+  }
+  100% {
+    transform: translateX(5px);
+
+  }
+  
+}

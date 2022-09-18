@@ -1,3 +1,5 @@
+// @use '../helpers/variables' as *;
+
 .btn {
   color: $light;
   border-radius: $borderRadius;
@@ -15,7 +17,6 @@
   font-size: 20px;
   font-weight: bold;
   &:hover {
-    background-color: $mainColor;
-    color: $light;
+    color: rgba(238, 238, 238, 0.714);
   }
 }

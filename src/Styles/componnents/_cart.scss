@@ -1,0 +1,101 @@
+// @use '../helpers/variables' as *;
+
+.carts {
+  padding: 30px 0;
+  width: 100%;
+  background-color: $mainColor;
+  min-height: calc(100vh - 147px);
+  .container {
+    .empty {
+      color: $light;
+      font-size: 5rem;
+      line-height: normal;
+      text-align: center;
+    }
+    .cart {
+      background-color: $light;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: $mainColor;
+      font-size: 20px;
+      gap: 30px;
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+      @media (max-width: 767px) {
+        flex-direction: column;
+        padding: 20px;
+      }
+      img {
+        width: 100px;
+      }
+      p {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .count {
+        display: flex;
+        align-items: center;
+        width: 120px;
+        justify-content: space-between;
+        color: $mainColor;
+        font-size: 18px;
+        span {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        button {
+          border: none;
+          outline: none;
+          display: flex;
+          padding: 8px 10px;
+          font-size: 18px;
+          width: 40px;
+          height: 35px;
+          align-items: center;
+          justify-content: center;
+          color: $light;
+          background-color: $mainColor;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+      }
+      .remove {
+        border: none;
+        padding: 8px 10px;
+        outline: none;
+        height: 40px;
+        width: 100px;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $mainColor;
+        border-radius: 6px;
+        cursor: pointer;
+        color: $light;
+      }
+      .price,
+      .total {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+
+    .total-price {
+      width: 100%;
+      background-color: $light;
+      color: $mainColor;
+      font-size: 20px;
+      font-weight: bold;
+      height: 54px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

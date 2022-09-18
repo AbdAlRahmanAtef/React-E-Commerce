@@ -3,22 +3,36 @@ import { useEffect } from "react";
 import { useState } from "react";
 function ProductList() {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const [cats, setCats] = useState([]);
+  const axios = require("axios");
+  const URL = "https://api.escuelajs.co/api/v1";
   function getProducts() {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
+    axios
+      .get(`${URL}/products?limit=50&offset=50`)
+      .then((res) => {
+        setProducts(res?.data);
+        console.log(res);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   }
   function getCategories() {
-    fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
+    axios
+      .get(`${URL}/categories`)
+      .then((res) => setCats(res?.data))
+      .catch(function (error) {
+        console.error(error);
+      });
   }
-  const getProductsInCat = (catName) => {
-    fetch(`https://fakestoreapi.com/products/category/${catName}`)
-      .then((res) => res.json())
-      .then((json) => setProducts(json));
-  };
+  function getProductsInCat(id) {
+    axios
+      .get(`${URL}/categories/${id}/products`)
+      .then((res) => setProducts(res?.data))
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
   useEffect(() => {
     getProducts();
     getCategories();
@@ -32,16 +46,16 @@ function ProductList() {
             <button className="filter" onClick={() => getProducts()}>
               All
             </button>
-            {categories.map((cat) => {
+            {cats?.map((cat) => {
               return (
                 <button
-                  key={cat}
+                  key={cat.id}
                   onClick={() => {
-                    getProductsInCat(cat);
+                    getProductsInCat(cat.id);
                   }}
                   className="filter"
                 >
-                  {cat}
+                  {cat.name}
                 </button>
               );
             })}
