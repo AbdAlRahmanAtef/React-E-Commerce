@@ -11,15 +11,15 @@ function ProductList() {
       .get(`${URL}/products?limit=50&offset=50`)
       .then((res) => {
         setProducts(res?.data);
-        console.log(res);
       })
       .catch(function (error) {
         console.error(error);
       });
   }
+  console.log(products);
   function getCategories() {
     axios
-      .get(`${URL}/categories`)
+      .get(`${URL}/categories?limit=5&offset=0`)
       .then((res) => setCats(res?.data))
       .catch(function (error) {
         console.error(error);
