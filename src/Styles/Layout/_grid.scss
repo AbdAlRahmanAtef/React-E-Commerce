@@ -4,6 +4,7 @@
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
+  max-width: 1400px;
   margin-right: auto;
   @media (min-width: 768px) {
     width: 750px;
@@ -16,8 +17,6 @@
   }
 }
 .main {
-  position: relative;
   min-height: calc(100vh - 80px);
-  top: 80px;
   overflow: hidden;
 }

@@ -1,4 +1,3 @@
-
 .navbar {
   width: 100%;
   height: 80px;
@@ -6,10 +5,19 @@
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: $dark;
+  background-color: transparent;
   .container {
+    &.bg-colored {
+      background-color: #fff;
+      box-shadow: 0 0 6px #ddd;
+      svg {
+        color: $mainColor;
+      }
+    }
     height: 100%;
     display: flex;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     align-items: center;
     justify-content: space-between;
     .logo {
@@ -36,14 +44,14 @@
         position: absolute;
         border-radius: 50%;
         top: -5px;
-        right: 0px;
+        right: 10px;
         font-size: 14px;
         height: 25px;
         width: 25px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(175, 89, 19, 0.896);
+        background-color: rgb(175, 89, 19);
         color: $light;
       }
     }

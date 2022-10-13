@@ -1,24 +1,28 @@
-import React, {useContext} from "react";
-import Logo from "../Images/logo.png";
+import React, { useContext, useState } from "react";
+import Logo from "../Images/logo.webp";
 import { Link } from "react-router-dom";
 import { HiOutlineShoppingCart } from "react-icons/hi";
-import { CartContext } from './../context/CartContext';
+import { CartContext } from "./../context/CartContext";
 function Navbar() {
-  const {cart} = useContext(CartContext)
-  // console.log(cart);
+  const { cart } = useContext(CartContext);
+  const [bg, setbg] = useState(false);
+
+  window.onscroll = () => {
+    if (window.scrollY >= 100) {
+      setbg(true);
+    } else {
+      setbg(false);
+    }
+  };
+
   return (
     <>
       <nav className="navbar">
-        <div className="container">
+        <div className={`container ${bg && "bg-colored"}`}>
           <Link className="logo" to="/">
             <img src={Logo} alt="logo" />
           </Link>
           <ul className="links">
-            <li>
-              <Link to="/" className="link btn">
-                Home
-              </Link>
-            </li>
             <li>
               <Link
                 data-count={cart.itemsCount}

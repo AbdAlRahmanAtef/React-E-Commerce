@@ -12,9 +12,8 @@ function ProductDetails() {
   const param = useParams();
   const { addToCart } = useContext(CartContext);
   const [product, setProduct] = useState({});
+  const [index, setindex] = useState(0);
 
-  // const images = product.images;
-  // console.log(images);
   useEffect(() => {
     axios
       .get(`https://api.escuelajs.co/api/v1/products/${param.productId}`)
@@ -26,21 +25,21 @@ function ProductDetails() {
       <div className="product">
         <div className="container">
           <div className="image">
-            <Swiper
-              modules={[Navigation]}
-              spaceBetween={0}
-              slidesPerView={1}
-              speed={800}
-              loop
-              navigation
-              className="swiper"
-            >
-              {product.images?.map((image) => (
-                <SwiperSlide className="swipre-slide">
-                  <img src={image} alt="" />
-                </SwiperSlide>
+            <img
+              src={product.images && product.images[index]}
+              alt=""
+              className="main-image"
+            />
+            <div className="small-images">
+              {product.images?.map((image, i) => (
+                <img
+                  onMouseEnter={() => setindex(i)}
+                  src={image}
+                  alt=""
+                  className="small-image"
+                />
               ))}
-            </Swiper>
+            </div>
           </div>
           <div className="info">
             <h3>{product.title}</h3>

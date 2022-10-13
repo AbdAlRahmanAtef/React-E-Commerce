@@ -4,8 +4,9 @@
   padding: 30px 0;
   width: 100%;
   background-color: $mainColor;
-  min-height: calc(100vh - 147px);
   .container {
+    margin-top: 80px;
+    min-height: calc(100vh - 217px);
     .empty {
       color: $light;
       font-size: 5rem;

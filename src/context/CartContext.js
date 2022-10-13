@@ -27,15 +27,12 @@ export const CartProvider = ({ children }) => {
     if (productIndex === -1) {
       items.push({ ...product, qty: 1 });
     } else {
-      if (sign === -1) {
+      if (sign === -1 && items[productIndex].qty >= 2) {
         items[productIndex].qty--;
-        if (items[productIndex].qty === 0) {
-          removeFromCart(items[productIndex]);
-        }
+      } else if (sign === 1 && items[productIndex].qty <= 9) {
+        items[productIndex].qty++;
       } else {
-        if (items[productIndex].qty <= 9) {
-          items[productIndex].qty++;
-        }
+        return;
       }
     }
     const total = caluculateCartTotal(items);
