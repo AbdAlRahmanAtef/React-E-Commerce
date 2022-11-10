@@ -8,7 +8,7 @@ function ProductList() {
   const URL = "https://api.escuelajs.co/api/v1";
   function getProducts() {
     axios
-      .get(`${URL}/products?limit=50&offset=50`)
+      .get(`${URL}/products?limit=20&offset=50`)
       .then((res) => {
         setProducts(res?.data);
       })

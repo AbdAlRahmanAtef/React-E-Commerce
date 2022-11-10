@@ -1,15 +1,24 @@
 import { createContext, useState } from "react";
 
 export const CartContext = createContext();
-const localStorageItems = "items";
+const localStorageItems = "REACT_STORED_ITEMS";
 export const CartProvider = ({ children }) => {
-  const initialItems =
-    JSON.parse(localStorage.getItem(localStorageItems)) || [];
+  // const initialItems = () => {
+  //   let initialItems;
+  //   if (localStorage.getItem(localStorageItems)) {
+  //     initialItems = JSON.parse(localStorage.getItem(localStorageItems)) || [];
+  //   }
+  //   return initialItems;
+  // };
+
+  const initialItems = localStorage.getItem(localStorageItems)
+    ? JSON.parse(localStorage.getItem(localStorageItems))
+    : [];
 
   const caluculateCartTotal = (items) => {
     localStorage.setItem(localStorageItems, JSON.stringify(items));
-    const itemsCount = items.reduce((acc, currenct) => acc + currenct.qty, 0);
-    const cartTotal = items.reduce(
+    const itemsCount = items?.reduce((acc, currenct) => acc + currenct.qty, 0);
+    const cartTotal = items?.reduce(
       (acc, currenct) => acc + currenct.qty * currenct.price,
       0
     );
@@ -17,8 +26,10 @@ export const CartProvider = ({ children }) => {
   };
 
   const [cart, setcart] = useState({
-    items: initialItems,
-    ...caluculateCartTotal(initialItems),
+    items: initialItems || [],
+    // ...caluculateCartTotal(initialItems),
+    itemsCount: 0,
+    cartTotal: 0,
   });
 
   const addToCart = (product, sign) => {
@@ -37,6 +48,7 @@ export const CartProvider = ({ children }) => {
     }
     const total = caluculateCartTotal(items);
     setcart({ items, ...total });
+    console.log(cart);
   };
 
   const removeFromCart = (product) => {
